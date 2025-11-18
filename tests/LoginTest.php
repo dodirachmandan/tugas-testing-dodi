@@ -2,16 +2,16 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . "/../functions.php";
+require_once dirname(__DIR__) . '/functions.php';
 
 class LoginTest extends TestCase
 {
-    public function test_login_valid()
+    public function testLoginValid()
     {
         $this->assertEquals("berhasil", login("admin", "1234"));
     }
 
-    public function test_login_invalid()
+    public function testLoginInvalid()
     {
         $this->assertEquals("gagal", login("salah", "password"));
     }

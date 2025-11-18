@@ -1,0 +1,21 @@
+name: PHP CI Pipeline (No Composer)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install PHP & PHPUnit
+      run: |
+        sudo apt update
+        sudo apt install -y php php-xml phpunit
+
+    - name: Run PHPUnit Tests
+      run: phpunit --configuration phpunit.xml
